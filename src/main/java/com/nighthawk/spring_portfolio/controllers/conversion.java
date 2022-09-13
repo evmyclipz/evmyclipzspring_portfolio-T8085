@@ -8,11 +8,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@ Controller
+@Controller
 public class conversion {
 
-    @GetMapping("/Conversion")
-    public String conversion{
+    @GetMapping("/conversion")
+    public String michealischinense(@RequestParam(name="name") String name, Model model) {
+
+        //model.addAttribute("xyz", name);
+        int x = Integer.parseInt(name);
+
+
+        return "conversion";
         
     }
     
