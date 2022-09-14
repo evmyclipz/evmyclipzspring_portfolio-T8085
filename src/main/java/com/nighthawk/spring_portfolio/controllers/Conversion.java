@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class conversion {
+public class Conversion {
 
 
-    private String reverseString(String out) {
+    /*private String reverseString(String out) {
         char[] ch = out.toCharArray();
         int x = out.length()-1;
         String s="";
@@ -20,13 +20,11 @@ public class conversion {
             s+=ch[x];
         }
         return s;
-    }
+    }*/
 
     @GetMapping("/conversion")
     public String number(@RequestParam(name="name") String name, Model model) {
-
-        //model.addAttribute("xyz", name);
-        int x = Integer.parseInt(name);
+        /*int x = Integer.parseInt(name);
         String out="";
         int a; //
         for(;x>=1; x=x/16) { //decimal to hexadecimal
@@ -55,7 +53,9 @@ public class conversion {
             	out+=String.valueOf(a);//appends to string
             
         }
-        this.reverseString(out);
+        this.reverseString(out);*/
+        name = "Hello World";
+        model.
 
 
         return "conversion";

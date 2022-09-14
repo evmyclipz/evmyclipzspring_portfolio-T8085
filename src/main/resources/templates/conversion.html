@@ -12,12 +12,13 @@
   <div class="px-4 py-5 my-5">
     <h3 class="display-5 fw-bold">Type a decimal number</h3>
 
-    <form action="/conversion" method="GET" id="greetForm">
+    <form action="/conversion" method="GET" id="NumberForm">
       <div>
         <label for="Field"></label>
         <input name="name" id="Field">
-        <button>Enter</button>
-        <p th:text="'Ox'+${out}+'!'"></p> 
+        <p th:text="${name}"></p>
+        <!--<button>Enter</button>
+        <p th:text="'Bye'+${out}+'!'"></p>--> 
       </div>
     </form>
   </div>
