@@ -11,8 +11,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class conversion {
 
+
+    private String reverseString(String out) {
+        char[] ch = out.toCharArray();
+        int x = out.length()-1;
+        String s="";
+        for(;x>=0;x--) {
+            s+=ch[x];
+        }
+        return s;
+    }
+
     @GetMapping("/conversion")
-    public String numbers(@RequestParam(name="name") String name, Model model) {
+    public String number(@RequestParam(name="name") String name, Model model) {
 
         //model.addAttribute("xyz", name);
         int x = Integer.parseInt(name);
@@ -44,23 +55,14 @@ public class conversion {
             	out+=String.valueOf(a);//appends to string
             
         }
-        out.reverseString(out));
+        this.reverseString(out);
 
 
-
-        public String reverseString(String out) {
-    	    char[] ch = out.toCharArray();
-    	    int x = out.length()-1;
-    	    String s="";
-    	    for(;x>=0;x--) {
-    		    s+=ch[x];
-    	    }
-    	    return s;
-        }
-
-
-        return "out";
+        return "conversion";
         
     
     
 
+    }
+
+}
