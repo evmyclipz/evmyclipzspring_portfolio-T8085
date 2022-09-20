@@ -68,13 +68,13 @@ public class Conversion {
     // @GetMapping handles GET request for /greet, maps it to greeting() method
     @GetMapping("/conversion")
     // @RequestParam handles variables binding to frontend, defaults, etc
-    public String number(@RequestParam(name="name", required=false, defaultValue="decimal") String decimal, Model model) {
+    public String number(@RequestParam(name="name", required=false, defaultValue="128") String decimal, Model model) {
 
         // model attributes are visible to Thymeleaf when HTML is "pre-processed"
-        model.addAttribute("name", decimal);
+     //   model.addAttribute("name", decimal);
         decimal = hexadecimal(decimal);
-        System.out.println(decimal);
-        
+      //  System.out.println(decimal);
+        model.addAttribute("name", decimal);
 
         // load HTML VIEW (greet.html)
         return "conversion"; 
