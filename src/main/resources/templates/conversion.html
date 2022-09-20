@@ -14,11 +14,10 @@
 
     <form action="/conversion" method="GET" id="NumberForm">
       <div>
-        <label for="Field"></label>
-        <input name="name" id="Field">
-        <p th:text="${name}"></p>
+        <label for="Field">number</label>
+        <input name="decimal" id="Field">
         <button>Enter</button>
-        <!--<p th:text="'Bye'+${out}+'!'"></p>-->
+        <p th:text="'Output is, 0x' + ${name} + '!'"></p>
       </div>
     </form>
   </div>
