@@ -71,8 +71,9 @@ public class Conversion {
     public String number(@RequestParam(name="name", required=false, defaultValue="128") String decimal, Model model) {
 
         // model attributes are visible to Thymeleaf when HTML is "pre-processed"
-     //   model.addAttribute("name", decimal);
-        decimal = hexadecimal(decimal);
+        //model.addAttribute("name", original);
+        String original = decimal;
+        decimal = original+" is"+" 0x"+hexadecimal(decimal);
       //  System.out.println(decimal);
         model.addAttribute("name", decimal);
 
