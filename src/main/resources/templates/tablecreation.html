@@ -19,12 +19,14 @@
   <option value="head">Head</option>
 </select><br>
 <br>
-<input type="submit" value="Submit">
+<input type="submit" value="Submit" >
 <input type="reset">
 </form>
 
+<button onclick="validateForm() ">Try it</button>
+
 <script>
-//function validateForm() 
+function validateForm() 
 {
 
   const rc = document.forms["frm1"];
@@ -78,6 +80,9 @@
         cell3.appendChild(cellText3);
        
         newrow.appendChild(cell);
+        newrow.appendChild(cell1);
+        newrow.appendChild(cell2);
+        newrow.appendChild(cell3);
 
         // add the row to the end of the table body
         tblBody.appendChild(newrow);
