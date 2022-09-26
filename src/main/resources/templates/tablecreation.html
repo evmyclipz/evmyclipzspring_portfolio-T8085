@@ -1,0 +1,98 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<h2>Enter Employee Details</h2>
+
+<form name="frm1">
+  <label for="name">Employee name:</label><br>
+  <input type="text" id="name" name="name" value="David"><br>
+  <label for="staffid">Staff ID:</label><br>
+  <input type="text" id="staffid" name="staffid" value="A2-301"><br>
+  <label for="desgn">Designation:</label><br>
+  <input type="text" id="desgn" name="desgn" value="Scientist Gr.4"><br>
+  <label for="level">Level:</label><br>
+  <select id="level" name="level">
+  <option value="worker">Worker</option>
+  <option value="head">Head</option>
+</select><br>
+<br>
+<input type="submit" value="Submit">
+<input type="reset">
+</form>
+
+<script>
+//function validateForm() 
+{
+
+  const rc = document.forms["frm1"];
+    // creates a <table> element and a <tbody> element
+    const tbl = document.createElement("table");
+    const tblBody = document.createElement("tbody");
+  
+    // creating all cells
+   // for (let i = 0; i < 2; i++) {
+      // creates a table row
+      const r1 = document.createElement("tr");
+      const ch = document.createElement("th");
+      const mark = document.createElement("mark");
+      const ct = document.createTextNode("Name");
+      ch.appendChild(mark);
+      ch.appendChild(ct);
+      r1.appendChild(ch);
+      const r2 = document.createElement("tr");
+      const ch1 = document.createElement("th");
+      const ct1 = document.createTextNode("Staff ID");
+      ch1.appendChild(mark);
+      ch1.appendChild(ct1);
+      r1.appendChild(ch1);
+      const ch2 = document.createElement("th");
+      const ct2 = document.createTextNode("Designation");
+      ch2.appendChild(mark);
+      ch2.appendChild(ct2);
+      r1.appendChild(ch2);
+      const ch3 = document.createElement("th");
+      const ct3 = document.createTextNode("Level");
+      ch3.appendChild(mark);
+      ch3.appendChild(ct3);
+      r1.appendChild(ch3);
+      tblBody.appendChild(r1);
+      
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        const newrow = document.createElement("tr");
+        const cell = document.createElement("td");
+        const cellText = document.createTextNode(rc.elements[0].value);
+        cell.appendChild(cellText);
+        const cell1 = document.createElement("td");
+        const cellText1 = document.createTextNode(rc.elements[1].value);
+        cell1.appendChild(cellText1);
+        const cell2 = document.createElement("td");
+        const cellText2 = document.createTextNode(rc.elements[2].value);
+        cell2.appendChild(cellText2);
+        const cell3 = document.createElement("td");
+        const cellText3 = document.createTextNode(rc.elements[3].value);
+        cell3.appendChild(cellText3);
+       
+        newrow.appendChild(cell);
+
+        // add the row to the end of the table body
+        tblBody.appendChild(newrow);
+     
+    // put the <tbody> in the <table>
+    tbl.appendChild(tblBody);
+    // appends <table> into <body>
+    document.body.appendChild(tbl);
+    // sets the border attribute of tbl to '2'
+    tbl.setAttribute("border", "2");
+    
+}
+</script>
+
+<p>Also note that the default width of text input fields is 20 characters.</p>
+
+</body>
+</html>
