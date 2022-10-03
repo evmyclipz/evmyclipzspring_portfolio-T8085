@@ -1,0 +1,130 @@
+<html 
+
+xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/base}" lang="en">
+
+<head>  
+    <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+  <title>Cities</title>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th><mark>Country</mark></th>
+      <th><mark>City Name</mark></th>
+      <th><mark>Time Zone</mark></th>
+      <th><mark>Population</mark></th>
+      <th><mark>Region Code</mark></th>
+    </tr>
+  </thead>
+  <tbody id='refid'>
+    <!---->
+  </tbody>
+</table>
+
+<button onclick="validateURL() ">Try it</button>
+
+<script>
+  function validateURL()
+  {
+
+  // prepare fetch options
+  const url = "http://localhost:8080/coins";
+ // alert(url);
+
+  // prepare HTML result container for new output
+  const resultContainer  = document.getElementById("refid");
+  
+  fetch(url)
+  .then(res => res.json())
+  .then((out) => {
+   alert(out.data.country);
+
+   const tr = document.createElement("tr");
+   // td for each column
+   const n1 = document.createElement("td");
+   const n2 = document.createElement("td");
+   const n3 = document.createElement("td");
+   const n4 = document.createElement("td");
+   const n5 = document.createElement("td");
+   n1.innerHTML = out.data.country;
+   n2.innerHTML = out.data.city;
+   n3.innerHTML = out.data.timezone;
+   n4.innerHTML = out.data.population;
+   n5.innerHTML = out.data.regionCode;
+       
+   tr.appendChild(n1);
+   tr.appendChild(n2);
+   tr.appendChild(n3);
+   tr.appendChild(n4);
+   tr.appendChild(n5);
+   // add HTML to container
+   resultContainer.appendChild(tr);
+
+  })
+.catch(err => { throw err });
+
+/*
+  const options = {
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'omit', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  };
+
+  // fetch the API
+  fetch(url, options)
+    // response is a RESTful "promise" on any successful fetch
+    .then(response => {
+      // check for response errors
+      if (response.status !== 200) {
+          const errorMsg = 'Database response error: ' + response.status;
+          console.log(errorMsg);
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.innerHTML = errorMsg;
+          tr.appendChild(td);
+          resultContainer.appendChild(tr);
+          return;
+      }
+      //if valid
+      response.json().then(rdata => {
+        console.log(rdata);
+
+        for (const row of rdata.data) {
+         const tr = document.createElement("tr");
+            // td for each column
+        const name = document.createElement("td");
+        name.innerHTML = row.country;
+       
+        tr.appendChild(name);
+        // add HTML to container
+        resultContainer.appendChild(tr);
+
+      })
+    })
+     // catch fetch errors (ie ACCESS to server blocked)
+  .catch(err => {
+    console.error(err);
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.innerHTML = err;
+    tr.appendChild(td);
+    resultContainer.appendChild(tr);
+  });
+*/
+  }
+</script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.nighthawk.spring_portfolio.controllers;
 
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -7,14 +8,13 @@ import java.net.http.HttpResponse;
 import java.util.Date;
 import java.util.HashMap;
 
-import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/coins")
 public class Coins {
     private JSONObject body; //last run result
     private HttpStatus status; //last run status
@@ -30,27 +30,40 @@ public class Coins {
             try {  //APIs can fail (ie Internet or Service down)
                 
                 //RapidAPI header
+                /*
                 HttpRequest request = HttpRequest.newBuilder()
-		            .uri(URI.create("https://car-data.p.rapidapi.com/cars?limit=10&page=0"))
-		            .header("X-RapidAPI-Key", "3bef89a477msh7eecb5e7498cd51p1095f2jsn9b36f511d7ec")
-		            .header("X-RapidAPI-Host", "car-data.p.rapidapi.com")
-		            .method("GET", HttpRequest.BodyPublishers.noBody())
-		            .build();
-                
-                HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+		        .uri(URI.create("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"))
+		        .header("X-RapidAPI-Key", "3bef89a477msh7eecb5e7498cd51p1095f2jsn9b36f511d7ec")
+		        .header("X-RapidAPI-Host", "coinranking1.p.rapidapi.com")
+		        .method("GET", HttpRequest.BodyPublishers.noBody())
+		        .build();
+                */
 
+                HttpRequest request = HttpRequest.newBuilder()
+		        .uri(URI.create("https://wft-geo-db.p.rapidapi.com/v1/geo/cities/Q60"))
+		        .header("X-RapidAPI-Key", "3bef89a477msh7eecb5e7498cd51p1095f2jsn9b36f511d7ec")
+		        .header("X-RapidAPI-Host", "wft-geo-db.p.rapidapi.com")
+		        .method("GET", HttpRequest.BodyPublishers.noBody())
+		        .build();
+
+                HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+                //System.out.println(response.body());
+
+                //System.out.println(response.body());
                 //JSONParser extracts text body and parses to JSONObject
-                this.body = (JSONObject) new JSONParser().parse(response.body());
-                System.out.println(this.body);
+                //this.body = (JSONObject) new JSONParser().parse(response.body());
+                JSONParser parser = new JSONParser();  
+                this.body = (JSONObject) parser.parse(response.body());   
                 this.status = HttpStatus.OK;  //200 success
                 this.last_run = today;
+                
             }
             catch (Exception e) {  //capture failure info
                 HashMap<String, String> status = new HashMap<>();
                 status.put("status", "RapidApi failure: " + e);
 
                 //Setup object for error
-                this.body = (JSONObject) status;
+                this.body = new JSONObject(status);
                 this.status = HttpStatus.INTERNAL_SERVER_ERROR; //500 error
                 this.last_run = null;
             }
