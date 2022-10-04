@@ -30,22 +30,31 @@ public class Coins {
             try {  //APIs can fail (ie Internet or Service down)
                 
                 //RapidAPI header
-                /*
+                /* 
                 HttpRequest request = HttpRequest.newBuilder()
 		        .uri(URI.create("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"))
 		        .header("X-RapidAPI-Key", "3bef89a477msh7eecb5e7498cd51p1095f2jsn9b36f511d7ec")
 		        .header("X-RapidAPI-Host", "coinranking1.p.rapidapi.com")
 		        .method("GET", HttpRequest.BodyPublishers.noBody())
 		        .build();
-                */
-
+                
+                
                 HttpRequest request = HttpRequest.newBuilder()
-		        .uri(URI.create("https://wft-geo-db.p.rapidapi.com/v1/geo/cities/Q60"))
+		        .uri(URI.create("https://wft-geo-db.p.rapidapi.com/v1/geo/cities"))
 		        .header("X-RapidAPI-Key", "3bef89a477msh7eecb5e7498cd51p1095f2jsn9b36f511d7ec")
 		        .header("X-RapidAPI-Host", "wft-geo-db.p.rapidapi.com")
 		        .method("GET", HttpRequest.BodyPublishers.noBody())
 		        .build();
+                */
 
+                
+                HttpRequest request = HttpRequest.newBuilder()
+		        .uri(URI.create("https://airbnb19.p.rapidapi.com/api/v1/getLanguages"))
+		        .header("X-RapidAPI-Key", "3bef89a477msh7eecb5e7498cd51p1095f2jsn9b36f511d7ec")
+		        .header("X-RapidAPI-Host", "airbnb19.p.rapidapi.com")
+		        .method("GET", HttpRequest.BodyPublishers.noBody())
+		        .build();
+               
                 HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
                 //System.out.println(response.body());
 
