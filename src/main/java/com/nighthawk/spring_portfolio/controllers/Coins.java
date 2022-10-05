@@ -47,7 +47,7 @@ public class Coins {
 		        .build();
                 */
 
-                
+                ///AirBnb get languages
                 HttpRequest request = HttpRequest.newBuilder()
 		        .uri(URI.create("https://airbnb19.p.rapidapi.com/api/v1/getLanguages"))
 		        .header("X-RapidAPI-Key", "3bef89a477msh7eecb5e7498cd51p1095f2jsn9b36f511d7ec")
