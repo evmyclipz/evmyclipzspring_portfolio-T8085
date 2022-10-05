@@ -11,3 +11,6 @@ public interface JokesJpaRepository extends JpaRepository<Jokes, Long> {
     List<Jokes> findAllByOrderByJokeAsc();
     List<Jokes> findByJokeIgnoreCase(String name);
 }
+
+
+// learn more about jokes
