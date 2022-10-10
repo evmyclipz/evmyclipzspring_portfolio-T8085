@@ -1,75 +1,168 @@
-<!-- This page is illustrative and contains ideas about HTML formatting -->
-<!DOCTYPE HTML>
-<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
-<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layouts/base}" lang="en">
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bebas Neue', cursive;
+            overflow-x: hidden;
+            background-color: white;
+        }
 
-<head>
-    <title>Intro</title>
-</head>
+        h1 {
+            font-size: 70px;
+        }
 
-<body>
-<th:block layout:fragment="body" th:remove="tag">
-    <!-- Start of body content specific to page -->
-    <div class="px-5 py-5 mx-auto">
-        <h1><strong>evmyclipz happy home page</strong></h1>
-        <div class="row">
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top" th:src="@{/images/java.png}" alt="Java Development" height="250">
-                    <div class="card-body">
-                    <h5 class="card-title">What should Java Developers learn?</h5>
-                    <p class="card-text">
-                        <ol>
-                            <li>Java 11-17 is used for PBL. Java 8 appears to be College Board standard.  Java features like Reactive Streams, HTTP2 client, JShell, React JS are more recent than 8.</li>
-                            <li>GitHub.  Learning to master managing change, branches, pull requests, and more.</li>
-                            <li>Development DevOps. Java programmers should have a passion for managing the environment and learning automation (Git, Maven, Docker).</li>
-                            <li>REST and Microservice using Spring.  Mastering creating and consuming RESTful APIs</li>
-                        </ol>
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+        h2 {
+            color: white;
+            font-size: 38px;
+        }
+
+        a {
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 28px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        #home-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .home-background-1-image, .home-background-1-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .home-background-1-image {
+            height: 500px;
+            background: url("https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .home-background-1-overlay {
+            height: 500px;
+            background-color: black;
+            opacity: 50%;
+            z-index: 2;
+        }
+
+        .home-background-1-content {
+            height: 500px;
+            position: relative;
+            z-index: 3;
+        }
+
+        #home-background-2 {
+            height: 400px;
+            width: 100%;
+            background-color: black;
+        }
+
+        /*.navbar-container {
+            background-color: black;
+
+        }*/
+
+        .navbar-links-container {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .motto-underline {
+            height: 2px;
+            width: 150px;
+            background-color: white;
+        }
+
+        .get-started-button {
+            height: 40px;
+            width: 300px;
+            background-color: transparent;
+            color: royalblue;
+            font-size: 15px;
+            border: 2px solid royalblue;
+            display: block;
+            margin: auto;
+            margin-top: 5%;
+            transition-duration: 1s;
+        }
+
+        .get-started-button:hover {
+            background-color: royalblue;
+            border: 2px solid white;
+            color: white;
+        }
+
+    </style>
+    <body>
+
+        <!--<div class = "navbar-container">
+            <div class = "navbar-links-container">
+                <a href = "index.html">Home</a>
+            </div>
+        </div>-->
+
+        <div id = "home-background-1">
+            <div class = "home-background-1-image"></div>
+            <div class = "home-background-1-overlay"></div>
+            <div class = "home-background-1-content">
+                <div class = "navbar-links-container">
+                    <a href = "index.html" style = "display: block; margin: auto;">Home</a>
+                </div>
+                <div style = "display: flex; flex-direction: row; position: relative; top: 20%;">
+                    <h1 style = "color: white; margin-left: 25%;">Prometheus</h1>
+                    <h1 style = "color: royalblue; margin-left: 15px;">Fitness</h1>
+                    <h1 style = "color: white; margin-left: 15px;">Application</h1>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top" th:src="@{/images/spring.png}" alt="Spring Development" height="250">
-                    <div class="card-body">
-                    <h5 class="card-title">What is Spring?</h5>
-                    <p class="card-text">
-                        <ol>
-                            <li>Spring Framework is the most popular application development framework of Java. </li>
-                            <li>Spring Boot helps to create a stand-alone application with less configuration.</li>
-                            <li>Spring MVC is a model view controller-based web framework under the Spring framework.</li>
-                            <li>ThymeLeaf is a server-side Java template engine, supports HTML5 JVM web development, and provides full integration with Spring Framework.</li>
-                        </ol>
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top" th:src="@{/images/pojo.jpeg}" alt="Java Persistence" height="250">
-                    <div class="card-body">
-                    <h5 class="card-title">How do you create Persistent data?</h5>
-                    <p class="card-text">
-                        <ol>
-                            <li>Java Persistent API (JPA) provides a query language that allows create, read, update, and delete objects from a database.</li>
-                            <li>Beans, Controller Code, and Business logic interact with the JPA to manage data in and out of the Database.</li>
-                            <li>An Object-Relational Model (ORM) mapping Java classes (entities + supporting structures) with a relational database</li>
-                            <li>Plain Old Java Objects (POJO) are the Class definitions that are foundations for JPA and ORM, see the @entity declaration over the Class definition.</li>
-                        </ol>
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            
         </div>
-    </div>
-    <!-- End of body content specific to page -->
-</th:block>
-</body>
 
+        <div id = "home-background-2">
+            <div style = "display: flex; flex-direction: row;">
+                <h2 style = "margin-left: 21.5%;">Plan</h2>
+                <h2 style = "margin-left: 21.5%;">Execute</h2>
+                <h2 style = "margin-left: 21.5%;">Success</h2>
+            </div>
+            <div style = "display: flex; flex-direction: row;">
+                <div class = "motto-underline" style = "margin-left: 18.5%;"></div>
+                <div class = "motto-underline" style = "margin-left: 17%;"></div>
+                <div class = "motto-underline" style = "margin-left: 18.3%;"></div>
+            </div>
+            <div style = "display: flex; flex-direction: row;">
+                <div style = "width: 200px; margin-left: 17.5%;">
+                    <p style = "color: white; font-family: Quicksand, sans-serif;">Create a workout routine that suits your schedule.</p>
+                </div>
+                <div style = "width: 200px; margin-left: 13.5%;">
+                    <p style = "color: white; font-family: Quicksand, sans-serif;">Build discipline and strictly follow your workout plan.</p>
+                </div>
+                <div style = "width: 200px; margin-left: 15%;">
+                    <p style = "color: white; font-family: Quicksand, sans-serif;">Finally achieve your fitness aspirations.</p>
+                </div>
+            </div>
+
+            <button class = "get-started-button">Get Started</button>
+        </div>
+        <script>
+
+        </script>
+    </body>
 </html>
