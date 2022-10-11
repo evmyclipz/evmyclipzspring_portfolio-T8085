@@ -1,34 +1,31 @@
 package com.nighthawk.spring_portfolio.controllers;
 
-import lombok.*;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 //To use the @Data annotation you should add the Lombok dependency.
-@Entity(name = "CardioExercise")
-@Table
-public class CardioExercise {
+
+@Entity(name = "Exercise")
+public class Exercise {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "id",
-            updatable = false)
     private Long id;
 
-    @Column(name = "exercise_name")
     private String exerciseName;
 
-    @Column(name = "time_period")
-    private Integer timePeriod;
+    private Integer timePeriod_reps;
 
-    public CardioExercise()
+    public Exercise()
     {
     }
 
-    public CardioExercise(String eName, Integer tp)
+    public Exercise(String eName, Integer tp)
     {
         exerciseName = eName;
-        timePeriod = tp;
+        timePeriod_reps = tp;
     }
 
     public void setID(Long id)
@@ -51,23 +48,23 @@ public class CardioExercise {
         return exerciseName;
     }
 
-    public void setTimePeriod(Integer tp)
+    public void setTimePeriodReps(Integer tp)
     {
-        timePeriod = tp;
+        timePeriod_reps = tp;
     }
 
     public Integer getTimePeriod()
     {
-        return timePeriod;
+        return timePeriod_reps;
     }
 
     @Override
     public String toString()
     {
-        return "CardioExercise{"+
+        return "Exercise{"+
                 "id="+id+
                 ",ExerciseName='"+exerciseName+'\''+
-                ",TimePeriod="+timePeriod+
+                ",TimePeriod="+timePeriod_reps+
                 "}";
     }
     

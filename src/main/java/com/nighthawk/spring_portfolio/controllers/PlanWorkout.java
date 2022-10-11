@@ -4,14 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
-public class Cities {
+public class PlanWorkout {
 
     // CONTROLLER handles GET request for /birds, maps it to birds() method
-    @GetMapping("/cities")
-    public String getCities() {
+    @GetMapping("/plan")
+    public String getPlan() {
 
         // load HTML VIEW (cities.html)
-        return "cities";
+        return "plan";
 
     }
 }

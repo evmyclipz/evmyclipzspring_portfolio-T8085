@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/base}" lang="en">
+
+<head>
+  <title>Workout Plan</title>
+  <style>
+    table, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<th:block layout:fragment="body" th:remove="tag">
+  <!-- Start of body content specific to page -->
+  <div class="px-4 py-5 my-5">
+    <h3 class="display-5 fw-bold">Workout Plan</h3>
+    
+    <div>
+        <table>
+            <thead>
+              <tr>
+                <th><mark>Exercise</mark></th>
+                <th><mark>Time Period</mark></th>
+                <!--th><mark>Region</mark></th>
+                <th><mark>Region Code</mark></th>
+                <th><mark>Region Code</mark></th-->
+              </tr>
+            </thead>
+            <tbody id='refid'>
+              <script>
+                {
+                    const url = "http://localhost:8080/api/v1/fitnessApp";
+
+                    const resultContainer  = document.getElementById("refid");
+
+                    fetch(url)
+                    .then(res => res.json())
+                    .then((data) => {
+                    //alert("Fetching data..........");
+
+                    for (const rs of data)
+                    {
+                        //alert(rs.city);
+
+                        const tr = document.createElement("tr");
+                        // td for each column
+                        const n1 = document.createElement("td");
+                        const n2 = document.createElement("td");
+                        // const n3 = document.createElement("td");
+                        // const n4 = document.createElement("td");
+                        //const n5 = document.createElement("td");
+                        n1.innerHTML = rs.exerciseName;
+                        n2.innerHTML = rs.timePeriod;
+                        //  n3.innerHTML = rs.region;
+                        //  n4.innerHTML = rs.regionCode;
+                        //n5.innerHTML = out.data.regionCode;
+                            
+                        tr.appendChild(n1);
+                        tr.appendChild(n2);
+                        //  tr.appendChild(n3);
+                        //  tr.appendChild(n4);
+
+                        //tr.appendChild(n5);
+                        // add HTML to container
+                        resultContainer.appendChild(tr);
+                    }
+
+                    })
+                    .catch(err => { throw err });
+                
+                }
+              </script>
+            </tbody>
+          </table>
+
+</div>
+
+</div>
+</th:block>
+
+</body>
+</html>

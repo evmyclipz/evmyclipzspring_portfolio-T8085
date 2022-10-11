@@ -111,8 +111,13 @@
         .get-started-button:hover {
             background-color: royalblue;
             border: 2px solid white;
+
             color: white;
         }
+        table, td {
+            background-color: white;
+            border: 1px solid black;
+          }
 
     </style>
     <body>
@@ -140,7 +145,7 @@
 
         <div id = "home-background-2">
             <div style = "display: flex; flex-direction: row;">
-                <h2 style = "margin-left: 21.5%;">Plan</h2>
+                <h2 style = "margin-left: 21.5%;"><a th:href="@{/plan}">Plan</a></h2>
                 <h2 style = "margin-left: 21.5%;">Execute</h2>
                 <h2 style = "margin-left: 21.5%;">Success</h2>
             </div>
@@ -162,9 +167,9 @@
             </div>
 
             <button class = "get-started-button">Get Started</button>
-        </div>
+       
         <script>
-
         </script>
+    </div>
     </body>
 </html>
