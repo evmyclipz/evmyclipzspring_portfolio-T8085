@@ -8,10 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import java.util.*;
 
-@Configuration
+@Configuration //
 public class ExerciseConfig {
 
-    @Bean
+    @Bean //for insertion of data inside table
     CommandLineRunner commandLineRunner(ExerciseRepository repository)
     {
         return args -> {
@@ -22,9 +22,10 @@ public class ExerciseConfig {
                 Exercise c5 = new Exercise("Biceps-Left",10);
                 Exercise c6 = new Exercise("Biceps-Right",10);
                 Exercise c7 = new Exercise("Stretchings",30);
+                Exercise c8 = new Exercise("Pistol Squats", 10);
                 
                 
-                repository.saveAll(List.of(c1,c2,c3,c4,c5,c6,c7));
+                repository.saveAll(List.of(c1,c2,c3,c4,c5,c6,c7,c8));  //will save Excercise  data into sqlite database.
         };
     }
 }

@@ -15,16 +15,16 @@ public class ExerciseController {
      
     private final ExerciseService exerciseService;
 
-    @Autowired 
+    @Autowired //will create cs object automatically
     public ExerciseController(ExerciseService cs)
     {
         exerciseService = cs;
     }
 
-    @GetMapping()
+    @GetMapping() //will also apply the same path as the request mapping annotation
     public List<Exercise> getExercises()
     {
-        return exerciseService.getExercises();
+        return exerciseService.getExercises(); //return a list 
     }
 
 }

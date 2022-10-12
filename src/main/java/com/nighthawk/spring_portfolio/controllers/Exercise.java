@@ -11,12 +11,12 @@ import javax.persistence.GenerationType;
 public class Exercise {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-
+    @GeneratedValue(strategy=GenerationType.AUTO) //primary key generation
+    private Long id; // Long is declared to support big id numbers
+    //Long is also wrapper class
     private String exerciseName;
 
-    private Integer timePeriod_reps;
+    private Integer timePeriod_reps; //adv: more secure with use of wrapper class
 
     public Exercise()
     {

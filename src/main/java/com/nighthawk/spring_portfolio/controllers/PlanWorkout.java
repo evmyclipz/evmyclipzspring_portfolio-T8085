@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PlanWorkout {
 
     // CONTROLLER handles GET request for /birds, maps it to birds() method
-    @GetMapping("/plan")
+    @GetMapping("/plan")  //fitness.html is calling plan which in turn connects to plan.html
     public String getPlan() {
 
         // load HTML VIEW (cities.html)
