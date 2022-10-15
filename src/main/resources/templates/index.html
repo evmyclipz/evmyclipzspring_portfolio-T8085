@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bebas Neue', cursive;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        h1 {
+            font-size: 70px;
+        }
+
+        h2 {
+            color: white;
+            font-size: 38px;
+        }
+
+        a {
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 28px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        #home-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .home-background-1-image, .home-background-1-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .home-background-1-image {
+            height: 500px;
+            background: url("https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .home-background-1-overlay {
+            height: 500px;
+            background-color: black;
+            opacity: 50%;
+            z-index: 2;
+        }
+
+        .home-background-1-content {
+            height: 500px;
+            position: relative;
+            z-index: 3;
+        }
+
+        #home-background-2 {
+            height: 400px;
+            width: 100%;
+            background-color: black;
+        }
+
+        /*.navbar-container {
+            background-color: black;
+
+        }*/
+
+        .navbar-links-container {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            top: 10px;
+        }
+
+        .motto-container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        
+        .motto-underline {
+            height: 2px;
+            width: 150px;
+            background-color: white;
+        }
+
+        .get-started-button {
+            height: 40px;
+            width: 300px;
+            background-color: transparent;
+            color: royalblue;
+            font-size: 15px;
+            border: 2px solid royalblue;
+            display: block;
+            margin: auto;
+            margin-top: 5%;
+            transition-duration: 1s;
+        }
+
+        .get-started-button:hover {
+            background-color: royalblue;
+            border: 2px solid white;
+            color: white;
+        }
+
+    </style>
+    <body>
+
+        <!--<div class = "navbar-container">
+            <div class = "navbar-links-container">
+                <a href = "index.html">Home</a>
+            </div>
+        </div>-->
+
+        <div id = "home-background-1">
+            <div class = "home-background-1-image"></div>
+            <div class = "home-background-1-overlay"></div>
+            <div class = "home-background-1-content">
+                <div class = "navbar-links-container">
+                    <a href = "index.html" style = "display: block; margin: auto;">Home</a>
+                </div>
+                <div style = "position: relative; top: 20%; transform: translate(25%, 0); display: flex; flex-direction: row;">
+                    <h1 style = "color: white;">Prometheus</h1>
+                    <h1 style = "color: royalblue; margin-left: 15px;">Fitness</h1>
+                    <h1 style = "color: white; margin-left: 15px;">Application</h1>
+                </div>
+            </div>
+        </div>
+
+        <div id = "home-background-2">
+            <div class = "motto-container">
+                <h2>Plan</h2>
+                <h2>Execute</h2>
+                <h2>Success</h2>
+            </div>
+            <div class = "motto-container">
+                <div class = "motto-underline"></div>
+                <div class = "motto-underline"></div>
+                <div class = "motto-underline"></div>
+            </div>
+            <div class = "motto-container">
+                <div style = "width: 200px;">
+                    <p style = "color: white; font-family: Quicksand, sans-serif;">Create a workout routine that suits your schedule.</p>
+                </div>
+                <div style = "width: 200px;">
+                    <p style = "color: white; font-family: Quicksand, sans-serif;">Build discipline and strictly follow your workout plan.</p>
+                </div>
+                <div style = "width: 200px;">
+                    <p style = "color: white; font-family: Quicksand, sans-serif;">Finally achieve your fitness aspirations.</p>
+                </div>
+            </div>
+
+            <button class = "get-started-button">Get Started</button>
+        </div>
+        <script>
+
+        </script>
+    </body>
+</html>
