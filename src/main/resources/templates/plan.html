@@ -1,37 +1,150 @@
-<!DOCTYPE HTML>
-<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
-      layout:decorate="~{layouts/base}" lang="en">
-
-<head>
-  <title>Workout Plan</title>
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  </head>
   <style>
-    table, td {
-      border: 1px solid black;
-    }
-  </style>
-</head>
-<body>
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Bebas Neue', cursive;
+        overflow-x: hidden;
+        background-color: white;
+        color: black;
+      }
 
-<th:block layout:fragment="body" th:remove="tag">
-  <!-- Start of body content specific to page -->
-  <div class="px-4 py-5 my-5">
-    <h3 class="display-5 fw-bold">Workout Plan</h3>
-    
-    <div>
-        <table>
-            <thead>
-              <tr>
-                <th><mark>Exercise</mark></th>
-                <th><mark>Time Period or Reps</mark></th>
-                <!--th><mark>Region</mark></th>
-                <th><mark>Region Code</mark></th>
-                <th><mark>Region Code</mark></th-->
-              </tr>
-            </thead>
-            <tbody id='refid'>
-              <script>
-                {
-                    const url = "http://localhost:8080/api/v1/fitnessApp";
+      h1 {
+        font-size: 58px;
+      }
+
+      * {
+         box-sizing: border-box;
+      }
+
+      #plan-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+      }
+
+      .plan-background-1-image, .plan-background-1-overlay {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+      }
+
+      .plan-background-1-image {
+          height: 500px;
+          background: url("https://images.pexels.com/photos/685531/pexels-photo-685531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          z-index: 1;
+      }
+
+      .plan-background-1-overlay {
+          height: 500px;
+          background-color: black;
+          opacity: 50%;
+          z-index: 2;
+      }
+
+      .plan-background-1-content {
+          height: 500px;
+          position: relative;
+          z-index: 3;
+      }
+
+      #plan-background-2 {
+          height: 400px;
+          width: 100%;
+          background-color: black;
+      }
+
+      .category-container {
+          height: 300px;
+          width: 250px;
+          background-color: darkgray;
+          box-shadow: 0 5px 20px 0 rgba(255, 255, 255, 0.7);
+          padding: 5px;
+      }
+
+      .category-button {
+          height: 30px;
+          width: 200px;
+          display: block;
+          margin: auto;
+          position: relative;
+          top: 15px;
+          background-color: royalblue;
+          color: white;
+          border: none;
+          transition-duration: 0.7s;
+      }
+
+      .category-button:hover {
+          background-color: dodgerblue;
+      }
+
+      li {
+        font-size: 21px;
+        color: white;
+      }
+
+  </style>
+  <body>
+    <div id = "plan-background-1">
+      <div class = "plan-background-1-image"></div>
+      <div class = "plan-background-1-overlay"></div>
+      <div class = "plan-background-1-content">
+        <div style = "display: flex; flex-direction: row; transform: translate(40%, 70%);">
+          <h1 style = "color: white;">Workout</h1>
+          <h1 style = "color: royalblue; margin-left: 10px;">Plans</h1>
+        </div>
+        <div style = "width: 400px; margin: auto; position: relative; top: 10%;">
+          <h3 style = "font-family: Quicksand, sans-serif; text-align: center; color: white;">Oftentimes, we find it hard to know what the perfect workout for us is. 
+            Using Prometheus, select the ideal workout plan that can help you reach all of your fitness goals.</h3>
+        </div>
+      </div>
+    </div>
+    <div id = "plan-background-2">
+      <div style = "width: 100%; display: flex; flex-direction: row; justify-content: space-evenly; position: relative; top: 50px;">
+          <div class = "category-container">
+              <h2 style = "text-align: center; font-size: 38px; color: white;">Cut</h2>
+              <ul style = "margin-left: 40px;">
+                  <li>Diet</li>
+                  <li>Workouts</li>
+                  <li>Goal</li>
+              </ul>
+              <button class = "category-button">Jump In!</button>
+          </div>
+          <div class = "category-container">
+              <h2 style = "text-align: center; font-size: 38px; color: white;">Bulk</h2>
+              <ul style = "margin-left: 40px;">
+                  <li>Diet</li>
+                  <li>Workouts</li>
+                  <li>Goal</li>
+              </ul>
+              <button class = "category-button">Jump In!</button>
+          </div>
+          <div class = "category-container">
+              <h2 style = "text-align: center; font-size: 38px; color: white;">Custom</h2>
+              <ul style = "margin-left: 40px;">
+                  <li>Diet</li>
+                  <li>Workouts</li>
+                  <li>Goal</li>
+              </ul>
+              <button class = "category-button">Jump In!</button>
+          </div>
+      </div>
+    </div>
+    <script>
+      /*{
+                    const url = `${window.location.origin}/api/v1/fitnessApp`;
 
                     const resultContainer  = document.getElementById("refid");
 
@@ -70,15 +183,7 @@
                     })
                     .catch(err => { throw err });
                 
-                }
-              </script>
-            </tbody>
-          </table>
-
-</div>
-
-</div>
-</th:block>
-
-</body>
+                }*/
+    </script>
+  </body>
 </html>
