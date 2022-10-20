@@ -129,6 +129,7 @@
           <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center;">
             <a href = "index.html" style = "margin-left: -40px;">Home</a>
             <a href = "plan.html" style = "margin-left: 40px;">Workout Plans</a>
+            <a href = "fitness.html" style = "margin-left: 40px;">My Fitness Plan</a>
           </div>
         </div>
         <div style = "display: flex; flex-direction: row; transform: translate(40%, 70%);">
@@ -150,7 +151,9 @@
                   <li>Workouts</li>
                   <li>Goal</li>
               </ul>
-              <button class = "category-button">Jump In!</button>
+              <form id = "cut-form" onsubmit = "selectPlanCut();" action = "cut.html">
+                <input type = "submit" value = "Jump In!" class = "category-button">
+              </form>
           </div>
           <div class = "category-container">
               <h2 style = "text-align: center; font-size: 38px; color: white;">Bulk</h2>
@@ -159,7 +162,9 @@
                   <li>Workouts</li>
                   <li>Goal</li>
               </ul>
-              <button class = "category-button">Jump In!</button>
+              <form id = "bulk-form" onsubmit = "selectPlanBulk();" action = "fitness.html">
+                <input type = "submit" value = "Jump In!" class = "category-button">
+              </form>
           </div>
           <div class = "category-container">
               <h2 style = "text-align: center; font-size: 38px; color: white;">Custom</h2>
@@ -168,11 +173,14 @@
                   <li>Workouts</li>
                   <li>Goal</li>
               </ul>
-              <button class = "category-button">Jump In!</button>
+              <form id = "custom-form" onsubmit = "selectPlanCustom();" action = "fitness.html">
+                <input type = "submit" value = "Jump In!" class = "category-button">
+              </form>
           </div>
       </div>
     </div>
     <script>
+      
       /*{
                     const url = `${window.location.origin}/api/v1/fitnessApp`;
 

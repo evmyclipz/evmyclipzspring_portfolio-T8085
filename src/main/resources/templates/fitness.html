@@ -4,6 +4,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <style>
         html, body {
@@ -33,52 +34,11 @@
             text-decoration: none;
         }
 
-        #home-background-1 {
-            position: relative;
-            background-repeat: no-repeat;
-        }
-
-        .home-background-1-image, .home-background-1-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
-        .home-background-1-image {
-            height: 500px;
-            background: url("https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            z-index: 1;
-        }
-
-        .home-background-1-overlay {
-            height: 500px;
-            background-color: black;
-            opacity: 50%;
-            z-index: 2;
-        }
-
-        .home-background-1-content {
-            height: 500px;
-            position: relative;
-            z-index: 3;
-        }
-
-        #home-background-2 {
+        #fitness-background-1 {
             height: 400px;
             width: 100%;
             background-color: black;
         }
-
-        /*.navbar-container {
-            background-color: black;
-
-        }*/
 
         .navbar-links-container {
             height: 50px;
@@ -88,88 +48,182 @@
             position: relative;
             top: 10px;
         }
-        
-        .motto-underline {
-            height: 2px;
-            width: 150px;
-            background-color: white;
+
+        #fitness-background-2 {
+            position: relative;
+            background-repeat: no-repeat;
         }
 
-        .get-started-button {
-            height: 40px;
-            width: 300px;
-            background-color: transparent;
-            color: royalblue;
-            font-size: 15px;
-            border: 2px solid royalblue;
+        .fitness-background-2-image, .fitness-background-2-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .fitness-background-2-image {
+            height: 1000px;
+            background: url("https://images.pexels.com/photos/669584/pexels-photo-669584.jpeg?auto=compress&cs=tinysrgb&w=2000");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .fitness-background-2-overlay {
+            height: 1000px;
+            background-color: black;
+            opacity: 50%;
+            z-index: 2;
+        }
+
+        .fitness-background-2-content {
+            height: 1000px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .fitness-plan-container {
+            height: 550px;
+            width: 500px;
+            background-color: lightgray;
             display: block;
             margin: auto;
-            margin-top: 5%;
-            transition-duration: 1s;
+            box-shadow: 0 10px 20px 5px rgba(255, 255, 255, 0.7);
+            padding: 10px;
         }
 
-        .get-started-button:hover {
-            background-color: royalblue;
-            border: 2px solid white;
+        h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
+        label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 25px;
+        }
+
+        #fitness-form {
+            display: block;
+            margin: auto;
+            background-color: darkgray;
+            padding: 10px;
+            color: black;
+            height: 50%;
+            width: 90%;
+        }
+
+        .fitness-form-input {
+            height: 15px;
+            width: 125px;
+            margin-left: 5px;
+        }
+
+        .fitness-button-1 {
+            height: 30px;
+            width: 200px;
+            display: block;
+            margin: auto;
+            margin-top: -5px;
+            background-color: white;
+            border: 2px solid navy;
+            color: navy;
+            transition-duration: 0.7s;
+        }
+
+        .fitness-button-1:hover {
+            background-color: navy;
             color: white;
         }
-        table, td {
-            background-color: white;
-            border: 1px solid black;
-          }
+
+        .personal-information-container {
+            font-family: 'Quicksand', sans-serif;
+            height: 450px;
+            width: 400px;
+            margin: auto;
+        }
 
     </style>
     <body>
-
-        <!--<div class = "navbar-container">
+        <div id = "fitness-background-1">
             <div class = "navbar-links-container">
-                <a href = "index.html">Home</a>
-            </div>
-        </div>-->
-
-        <div id = "home-background-1">
-            <div class = "home-background-1-image"></div>
-            <div class = "home-background-1-overlay"></div>
-            <div class = "home-background-1-content">
-                <div class = "navbar-links-container">
-                    <a href = "index.html" style = "display: block; margin: auto;">Home</a>
+                <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center;">
+                  <a href = "index.html" style = "margin-left: -40px;">Home</a>
+                  <a href = "plan.html" style = "margin-left: 40px;">Workout Plans</a>
+                  <a href = "fitness.html" style = "margin-left: 40px;">My Fitness Plan</a>
                 </div>
-                <div style = "display: flex; flex-direction: row; position: relative; top: 20%;">
-                    <h1 style = "color: white; margin-left: 25%;">Prometheus</h1>
-                    <h1 style = "color: royalblue; margin-left: 15px;">Fitness</h1>
-                    <h1 style = "color: white; margin-left: 15px;">Application</h1>
+            </div>
+            <div style = "transform: translate(37%, 50%); display: flex; flex-direction: row;">
+                <h1 style = "color: white;">My</h1>
+                <h1 style = "color: royalblue; margin-left: 15px;">Fitness</h1>
+                <h1 style = "color: white; margin-left: 15px;">Plan</h1>
+            </div>
+        </div>
+        <div id = "fitness-background-2">
+            <div class = "fitness-background-2-image"></div>
+            <div class = "fitness-background-2-overlay"></div>
+            <div class = "fitness-background-2-content">
+                <div style = "height: 20%; width: 100%; display: flex; justify-content: center; align-items: center;">
+                    <h1 style = "color: white;">Plan. Execute. Maintain.</h1>
+                </div>
+                <div class = "fitness-plan-container">
+                    <h2 style = "color: black; text-align: center;">Your Current Plan</h2>
+                    <h3 id = "current-plan"></h3>
+                    <form id = "fitness-form" onSubmit = "submitFormData()">
+                        <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center;">
+                            <label for = "name">Enter your name:</label>
+                            <input type = "text" name = "name" id = "name" class = "fitness-form-input" required>
+                        </div>
+                        <h3 style = "text-align: center;">Enter your height</h3>
+                        <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center;">
+                            <label for = "height-1">Feet:</label>
+                            <input type = "number" name = "height-1" id = "height-1" class = "fitness-form-input" required>
+                            <label for = "height-2" style = "margin-left: 10px;">Inches:</label>
+                            <input type = "number" name = "height-1" id = "height-1" class = "fitness-form-input" required>
+                        </div>
+                        <br>
+                        <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center;">
+                            <label for = "weight">Enter your weight in pounds:</label>
+                            <input type = "number" name = "weight" id = "weight" class = "fitness-form-input" required>
+                        </div>
+                        <br>
+                        <label for = "free-time" style = "display: block; text-align: center;">Enter the amount of free time you have every day in minutes:</label>
+                        <input type = "number" name = "free-time" id = "free-time" class = "fitness-form-input" style = "display: block; margin: auto; margin-top: 5px;" required>
+                        <br>
+                        <input type = "submit" class = "fitness-button-1" value = "Submit">
+                    </form>
+                    <div class = "personal-information-container" id = "personal-information-container">
+                        <h2 style = "text-align: center;">Your Personal Information</h2>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div id = "home-background-2">
-            <div style = "display: flex; flex-direction: row;">
-                <h2 style = "margin-left: 21.5%;"><a th:href="@{/plan}">Plan</a></h2>
-                <h2 style = "margin-left: 21.5%;">Execute</h2>
-                <h2 style = "margin-left: 21.5%;">Success</h2>
-            </div>
-            <div style = "display: flex; flex-direction: row;">
-                <div class = "motto-underline" style = "margin-left: 18.5%;"></div>
-                <div class = "motto-underline" style = "margin-left: 17%;"></div>
-                <div class = "motto-underline" style = "margin-left: 18.3%;"></div>
-            </div>
-            <div style = "display: flex; flex-direction: row;">
-                <div style = "width: 200px; margin-left: 17.5%;">
-                    <p style = "color: white; font-family: Quicksand, sans-serif;">Create a workout routine that suits your schedule.</p>
-                </div>
-                <div style = "width: 200px; margin-left: 13.5%;">
-                    <p style = "color: white; font-family: Quicksand, sans-serif;">Build discipline and strictly follow your workout plan.</p>
-                </div>
-                <div style = "width: 200px; margin-left: 15%;">
-                    <p style = "color: white; font-family: Quicksand, sans-serif;">Finally achieve your fitness aspirations.</p>
-                </div>
-            </div>
-
-            <button class = "get-started-button">Get Started</button>
-       
         <script>
+            if (localStorage.getItem("finishedQuiz") == "True") {
+                $("#fitness-form").hide();
+                $("#personal-information-container").show();
+            } else {
+                $("#fitness-form").show();
+                $("#personal-information-container").hide();
+            }
+
+            function submitFormData() {
+                var formData = $("#fitness-form").serializeArray();
+                var formDataObject = {
+                    name: formData[0].value,
+                    height: formData[1].value + "' " + formData[2].value + '"',
+                    weight: formData[3].value,
+                    freeTime: formData[4].value
+                };
+                localStorage.setItem("finishedQuiz", "True");
+                localStorage.setItem("quizData", JSON.stringify(formDataObject));
+                location.reload();
+            }
         </script>
-    </div>
     </body>
 </html>
