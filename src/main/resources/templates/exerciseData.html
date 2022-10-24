@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  </head>
+  <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Bebas Neue', cursive;
+        overflow-x: hidden;
+        background-color: white;
+        foreground-color: white;
+        color: black;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      h3 {
+        font-family: 'Quicksand', sans-serif;
+        font-weight: lighter;
+      }
+
+      a {
+          color: white;
+          font-family: 'Quicksand', sans-serif;
+          font-size: 28px;
+      }
+
+      a:link {
+          text-decoration: none;
+      }
+
+      * {
+         box-sizing: border-box;
+      }
+
+      .navbar-links-container {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            top: 10px;
+      }
+
+      #plan-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+      }
+
+      .plan-background-1-image, .plan-background-1-overlay {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+      }
+
+      .plan-background-1-image {
+          height: 500px;
+          background: url("https://images.pexels.com/photos/685531/pexels-photo-685531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          z-index: 1;
+      }
+
+      .plan-background-1-overlay {
+          height: 500px;
+          background-color: black;
+          opacity: 50%;
+          z-index: 2;
+      }
+
+      .plan-background-1-content {
+          height: 500px;
+          position: relative;
+          z-index: 3;
+      }
+
+      #plan-background-2 {
+          height: 400px;
+          width: 100%;
+          background-color: black;
+      }
+
+      .category-container {
+          height: 300px;
+          width: 250px;
+          background-color: darkgray;
+          box-shadow: 0 5px 20px 0 rgba(255, 255, 255, 0.7);
+          padding: 5px;
+      }
+
+      .category-button {
+          height: 30px;
+          width: 200px;
+          display: block;
+          margin: auto;
+          position: relative;
+          top: 15px;
+          background-color: royalblue;
+          color: white;
+          border: none;
+          transition-duration: 0.7s;
+      }
+
+      .category-button:hover {
+          background-color: dodgerblue;
+      }
+
+      li {
+        font-size: 21px;
+        color: white;
+      }
+      table, th, td {
+        border: 
+        1px solid lightblue;
+        background-color: white;
+        foreground-color: #ffff66;
+      }
+
+  </style>
+  <body>
+    <div id = "plan-background-1">
+      <div class = "plan-background-1-image"></div>
+      <div class = "plan-background-1-overlay"></div>
+      <div class = "plan-background-1-content">
+    <table>
+        <thead>
+        <tr>
+            <th>"ID No."</th>
+            <th>"Exercise Name"</th>
+            <th>"Time Period or Reps"</th>
+        </tr>
+    </thead>
+    <tbody id="refid">
+    <script>
+      {
+                    const url = `${window.location.origin}/api/v1/fitnessApp`;
+                    //const url = "http://localhost:8080/api/v1/fitnessApp";
+
+
+                    const resultContainer  = document.getElementById("refid");
+
+                    fetch(url)
+                    .then(res => res.json())
+                    .then((data) => {
+                    alert("Fetching data..........");
+
+                    for (const rs of data)
+                    {
+                               
+                        const tr = document.createElement("tr");
+                        const n1 = document.createElement("td");
+                        const n2 = document.createElement("td");    
+                        const n3 = document.createElement("td");
+                        n1.innerHTML = rs.id;
+                        n2.innerHTML = rs.exerciseName;
+                        n3.innerHTML = rs.timePeriod;
+                            
+                        tr.appendChild(n1);
+                        tr.appendChild(n2);
+                        tr.appendChild(n3);
+                        // add HTML to container
+                       
+                        resultContainer.appendChild(tr);
+                       // alert(rs.exerciseName);
+                    }
+
+                    })
+                    .catch(err => { throw err });
+                
+                }
+    </script>
+</tbody>
+</table>
+</div>
+</div>
+
+  </body>
+</html>

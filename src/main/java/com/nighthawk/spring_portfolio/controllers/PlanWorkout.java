@@ -14,4 +14,12 @@ public class PlanWorkout {
         return "plan";
 
     }
+
+    @GetMapping("/exercisedata")  //exerciseData.html is display all exercises
+    public String getExercise() {
+
+        // load HTML VIEW (exerciseData.html)
+        return "exerciseData";
+
+    }
 }
