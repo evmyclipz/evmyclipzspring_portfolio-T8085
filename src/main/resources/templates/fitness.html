@@ -253,11 +253,21 @@
                     <div class = "current-plan-heading">
                         <h3 id = "current-plan"></h3>
                     </div>
-                    <table id = "refid"></table>
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>"ID No."</th>
+                              <th>"Exercise Name"</th>
+                              <th>"Time Period or Reps"</th>
+                          </tr>
+                        </thead>
+                        <tbody id="refid"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <script>
+            /* Local storage used to display personal information collected from the initial survey */
             if (localStorage.getItem("finishedQuiz") == "True") {
                 $("#fitness-form").hide();
                 $("#personal-information-container").show();
@@ -275,6 +285,7 @@
                 $("#personal-information-container").hide();
             }
 
+            /* Function that collects survey responses */
             function submitFormData() {
                 var formData = $("#fitness-form").serializeArray();
                 var formDataObject = {
@@ -288,6 +299,7 @@
                 location.reload();
             }
 
+            /* Variables and functions used for editing personal information */
             var editButton = document.getElementById("edit-button");
             editButton.addEventListener("click", editPersonalInformation);
 
@@ -303,12 +315,14 @@
 
             }
 
+            /* Local storage used to retrieve data from the plan the user selected in plan.html */
             if (localStorage.getItem("workoutPlan")) {
                 var workoutPlanRetrieve = localStorage.getItem("workoutPlan");
                 var currentPlan = document.getElementById("current-plan");
                 currentPlan.innerHTML = workoutPlanRetrieve;
             }
 
+            /* API data loader */
             const url = `${window.location.origin}/api/v1/fitnessApp`;
 
                     const resultContainer  = document.getElementById("refid");
