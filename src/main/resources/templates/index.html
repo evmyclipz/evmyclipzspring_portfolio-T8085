@@ -84,6 +84,20 @@
             top: 10px;
         }
 
+        .motto-grid {
+            display: grid;
+            grid-template-columns: 40% 20% 40%;
+            grid-template-rows: 100px 20px auto;
+        }
+
+        .motto-item {
+            padding: 10px;
+            font-size: 38px;
+            text-align: center;
+            display: block;
+            margin: auto;
+        }
+
         .motto-container {
             width: 100%;
             display: flex;
@@ -106,7 +120,7 @@
             border: 2px solid royalblue;
             display: block;
             margin: auto;
-            margin-top: 5%;
+            margin-top: 2%;
             transition-duration: 1s;
         }
 
@@ -124,13 +138,13 @@
             <div class = "home-background-1-overlay"></div>
             <div class = "home-background-1-content">
                 <div class = "navbar-links-container">
-                    <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center;">
-                      <a href = "index.html" style = "margin-left: -40px;">Home</a>
-                      <a href = "plan.html" style = "margin-left: 40px;">Workout Plans</a>
-                      <a href = "fitness.html" style = "margin-left: 40px;">My Fitness Plan</a>
+                    <div style = "height: 25%; width: 50%; display: flex; margin: auto; flex-direction: row; justify-content: space-evenly;">
+                      <a href = "index.html">Home</a>
+                      <a href = "plan.html">Workout Plans</a>
+                      <a href = "fitness.html">My Fitness Plan</a>
                     </div>
                   </div>
-                <div style = "transform: translate(25%, 50%); display: flex; flex-direction: row;">
+                <div style = "height: 75%; width: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center;">
                     <h1 style = "color: white;">Prometheus</h1>
                     <h1 style = "color: royalblue; margin-left: 15px;">Fitness</h1>
                     <h1 style = "color: white; margin-left: 15px;">Application</h1>
@@ -139,28 +153,29 @@
         </div>
 
         <div id = "home-background-2">
-            <div class = "motto-container">
-                <h2><a th:href="@{/exercisedata}">Plan</a></h2>
-                <h2>Execute</h2>
-                <h2>Success</h2>
-            </div>
-            <div class = "motto-container">
-                <div class = "motto-underline"></div>
-                <div class = "motto-underline"></div>
-                <div class = "motto-underline"></div>
-            </div>
-            <div class = "motto-container">
-                <div style = "width: 200px;">
-                    <p style = "color: white; font-family: Quicksand, sans-serif;">Create a workout routine that suits your schedule.</p>
+            <div class = "motto-grid">
+                <div class = "motto-item"><h2><a th:href="@{/exercisedata}" style = "font-family: 'Bebas Neue', cursive; font-size: 38px;">Plan</a></h2></div>
+                <div class = "motto-item"><h2>Execute</h2></div>
+                <div class = "motto-item"><h2>Success</h2></div>
+                <div class = "motto-item"><div class = "motto-underline"></div></div>
+                <div class = "motto-item"><div class = "motto-underline"></div></div>
+                <div class = "motto-item"><div class = "motto-underline"></div></div>
+                <div class = "motto-item">
+                    <div style = "width: 200px;">
+                        <p style = "color: white; font-family: Quicksand, sans-serif; font-size: 21px;">Create a workout routine that suits your schedule.</p>
+                    </div>
                 </div>
-                <div style = "width: 200px;">
-                    <p style = "color: white; font-family: Quicksand, sans-serif;">Build discipline and strictly follow your workout plan.</p>
+                <div class = "motto-item">
+                    <div style = "width: 200px;">
+                        <p style = "color: white; font-family: Quicksand, sans-serif; font-size: 21px;">Build discipline and strictly follow your workout plan.</p>
+                    </div>
                 </div>
-                <div style = "width: 200px;">
-                    <p style = "color: white; font-family: Quicksand, sans-serif;">Finally achieve your fitness aspirations.</p>
+                <div class = "motto-item">
+                    <div style = "width: 200px;">
+                        <p style = "color: white; font-family: Quicksand, sans-serif; font-size: 21px;">Finally achieve your fitness aspirations.</p>
+                    </div>
                 </div>
             </div>
-
             <button class = "get-started-button">Get Started</button>
         </div>
         <script>
