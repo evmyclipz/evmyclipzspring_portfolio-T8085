@@ -1,3 +1,4 @@
+
 package com.nighthawk.spring_portfolio.controllers;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ public class LoginController {
 
         String email = request.getParameter("fname");
         System.out.println(email);
-        return "";
+        return "index";
 
     }
 
