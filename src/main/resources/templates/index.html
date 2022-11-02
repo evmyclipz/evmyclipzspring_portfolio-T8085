@@ -49,7 +49,7 @@
         .home-background-1-image {
             height: 500px;
             background: url("https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-            background-position: center;
+            background-position: center 160%;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -142,9 +142,9 @@
                       <a href = "index.html">Home</a>
                       <a href = "plan.html">Workout Plans</a>
                       <a href = "fitness.html">My Fitness Plan</a>
-                      <a href = "login.html">Upgrade to Premium</a>
+                      <a href = "http://localhost:8080/login">Upgrade to Premium</a>
                     </div>
-                  </div>
+                </div>
                 <div style = "height: 75%; width: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center;">
                     <h1 style = "color: white;">Prometheus</h1>
                     <h1 style = "color: royalblue; margin-left: 15px;">Fitness</h1>
@@ -177,7 +177,7 @@
                     </div>
                 </div>
             </div>
-            <button class = "get-started-button" onclick="now()">Get Started</button>
+            <button class = "get-started-button" onclick = "location.href = 'plan.html';">Get Started</button>
         </div>
         <script>
 function now(){

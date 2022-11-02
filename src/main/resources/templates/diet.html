@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bebas Neue', cursive;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        a {
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 28px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .navbar-links-container {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            top: 10px;
+        }
+
+        #diet-background-1 {
+            position: relative;
+            background-repeat: no-repeat;
+        }
+
+        .diet-background-1-image, .diet-background-1-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .diet-background-1-image {
+            height: 500px;
+            background: url("https://images.pexels.com/photos/4137772/pexels-photo-4137772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .diet-background-1-overlay {
+            height: 500px;
+            background-color: black;
+            opacity: 50%;
+            z-index: 2;
+        }
+
+        .diet-background-1-content {
+            height: 500px;
+            position: relative;
+            z-index: 3;
+        }
+    </style>
+    <body>
+        <div id = "diet-background-1">
+            <div class = "diet-background-1-image"></div>
+            <div class = "diet-background-1-overlay"></div>
+            <div class = "diet-background-1-content">
+                <div class = "navbar-links-container">
+                    <div style = "height: 25%; width: 50%; display: flex; margin: auto; flex-direction: row; justify-content: space-evenly;">
+                        <a href = "index.html">Home</a>
+                        <a href = "plan.html">Workout Plans</a>
+                        <a href = "fitness.html">My Fitness Plan</a>
+                        <a href = "diet.html">Diet Tracker</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+        </script>
+    </body>
+</html>
