@@ -204,11 +204,8 @@
                 <div style = "height: 15%; width: 100%; display: flex; justify-content: center; align-items: center;">
                     <h1 style = "color: white;">Plan. Execute. Maintain.</h1>
                 </div>
-                <div>
-                    <h3 style = "display: inline; font-size: 28px;color: white;" th:text="${message}">Message</h3>
-                </div>
                 <div class = "fitness-plan-container">
-                    <form id = "fitness-form" action="signup" method="post">
+                    <!--form id = "fitness-form" action="signup" method="post">
                         <div style = "width: 100%; display: flex; flex-direction: row; justify-content: center; margin-top: 10px;">
                             <label for = "name">Enter your name:</label>
                             <input type = "text" name = "name" id = "name" class = "fitness-form-input" required>
@@ -230,26 +227,26 @@
                         <input type = "number" name = "freetime" id = "free-time" class = "fitness-form-input" style = "display: block; margin: auto; margin-top: 5px;" required>
                         <br>
                         <button type="submit">Submit</button>
-                    </form>
-                    <!--div class = "personal-information-container" id = "personal-information-container">
+                    </form-->
+                    <div class = "personal-information-container" id = "personal-information-container">
                         <h2 style = "font-family: 'Bebas Neue', cursive; color: black; text-align: center;">Your Personal Information</h2>
                         <h3 style = "display: inline; font-size: 28px;">Name:</h3>
-                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "name-display"></h3>
+                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "name-display" th:text="${name}"></h3>
                         <br>
                         <br>
                         <h3 style = "display: inline; font-size: 28px;">Height:</h3>
-                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "height-display"></h3>
+                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "height-display" th:text="${height}"></h3>
                         <br>
                         <br>
                         <h3 style = "display: inline; font-size: 28px;">Weight:</h3>
-                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "weight-display"></h3>
+                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "weight-display" th:text="${weight}"></h3>
                         <br>
                         <br>
                         <h3 style = "display: inline; font-size: 28px;">Minutes of Free Time Each Day:</h3>
-                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "free-time-display"></h3>
+                        <h3 style = "display: inline; font-size: 28px; margin-left: 5px;" id = "free-time-display" th:text="${freetime}"></h3>
                         <br>
-                        <button class = "edit-button" id = "edit-button">Edit Personal Information</button>
-                    </div-->
+                        <!--button class = "edit-button" id = "edit-button">Edit Personal Information</button-->
+                    </div>
                 </div>
                 <!--div class = "fitness-plan-container" style = "margin-top: 150px;">
                     <h2 style = "color: black; text-align: center;">Your Current Plan</h2>
@@ -269,99 +266,5 @@
                 </div-->
             </div>
         </div>
-        <!--script>
-            /* Local storage used to display personal information collected from the initial survey */
-            if (localStorage.getItem("finishedQuiz") == "True") {
-                $("#fitness-form").hide();
-                $("#personal-information-container").show();
-                var quizDataRetrieve1 = JSON.parse(localStorage.getItem("quizData"));
-                var nameDisplay = document.getElementById("name-display");
-                nameDisplay.innerHTML = quizDataRetrieve1.name;
-                var heightDisplay = document.getElementById("height-display");
-                heightDisplay.innerHTML = quizDataRetrieve1.height;
-                var weightDisplay = document.getElementById("weight-display");
-                weightDisplay.innerHTML = quizDataRetrieve1.weight;
-                var freeTimeDisplay = document.getElementById("free-time-display");
-                freeTimeDisplay.innerHTML = quizDataRetrieve1.freeTime;
-            } else {
-                $("#fitness-form").show();
-                $("#personal-information-container").hide();
-            }
-
-            /* Function that collects survey responses */
-            function submitFormData() {
-                var formData = $("#fitness-form").serializeArray();
-                var formDataObject = {
-                    name: formData[0].value,
-                    height: formData[1].value + "' " + formData[2].value + '"',
-                    weight: formData[3].value,
-                    freeTime: formData[4].value
-                };
-                localStorage.setItem("finishedQuiz", "True");
-                localStorage.setItem("quizData", JSON.stringify(formDataObject));
-                location.reload();
-            }
-
-            /* Variables and functions used for editing personal information */
-            var editButton = document.getElementById("edit-button");
-            editButton.addEventListener("click", editPersonalInformation);
-
-            function editPersonalInformation() {
-                var quizDataRetrieve2 = JSON.parse(localStorage.getItem("quizData"));
-                $("#fitness-form").show();
-                $("#personal-information-container").hide();
-                $("#name").val(quizDataRetrieve2.name);
-                $("#height1").val(quizDataRetrieve2.height.slice(0, 1));
-                $("#height2").val(quizDataRetrieve2.height.slice(3, 4));
-                $("#weight").val(quizDataRetrieve2.weight);
-                $("#freetime").val(quizDataRetrieve2.freeTime);
-
-            }
-
-            /* Local storage used to retrieve data from the plan the user selected in plan.html */
-            if (localStorage.getItem("workoutPlan")) {
-                var workoutPlanRetrieve = localStorage.getItem("workoutPlan");
-                var currentPlan = document.getElementById("current-plan");
-                currentPlan.innerHTML = workoutPlanRetrieve;
-            }
-
-            /* API data loader */
-            const url = `${window.location.origin}/api/v1/fitnessApp`;
-
-                    const resultContainer  = document.getElementById("refid");
-
-                    fetch(url)
-                    .then(res => res.json())
-                    .then((data) => {
-                    alert("Fetching data..........");
-
-                    for (const rs of data)
-                    {
-                        alert(rs.city);
-
-                        const tr = document.createElement("tr");
-                        const n1 = document.createElement("td");
-                        const n2 = document.createElement("td");
-                        const n3 = document.createElement("td");
-                        const n4 = document.createElement("td");
-                        const n5 = document.createElement("td");
-                        n1.innerHTML = rs.exerciseName;
-                        n2.innerHTML = rs.timePeriod;
-                        n3.innerHTML = rs.region;
-                        n4.innerHTML = rs.regionCode;
-                        n5.innerHTML = out.data.regionCode;
-                            
-                        tr.appendChild(n1);
-                        tr.appendChild(n2);
-                        tr.appendChild(n3);
-                        tr.appendChild(n4);
-
-                        tr.appendChild(n5);
-                        resultContainer.appendChild(tr);
-                    }
-
-                    })
-                    .catch(err => { throw err });
-        </script-->
-    </body>
+        </body>
 </html>
