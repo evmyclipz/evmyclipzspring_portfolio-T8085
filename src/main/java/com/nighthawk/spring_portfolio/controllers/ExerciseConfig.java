@@ -11,6 +11,7 @@ import java.util.*;
 @Configuration //
 public class ExerciseConfig {
 
+    /*
     @Bean //for insertion of data inside table
     CommandLineRunner commandLineRunner(ExerciseRepository repository)
     {
@@ -28,5 +29,6 @@ public class ExerciseConfig {
                 repository.saveAll(List.of(c1,c2,c3,c4,c5,c6,c7,c8));  //will save Excercise  data into sqlite database.
         };
     }
+    */
 }
 
