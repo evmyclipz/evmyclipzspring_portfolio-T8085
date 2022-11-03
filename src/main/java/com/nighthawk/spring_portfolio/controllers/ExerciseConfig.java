@@ -11,11 +11,15 @@ import java.util.*;
 @Configuration //
 public class ExerciseConfig {
 
-    /*
+    
     @Bean //for insertion of data inside table
     CommandLineRunner commandLineRunner(ExerciseRepository repository)
     {
+
         return args -> {
+
+                repository.deleteAllInBatch();  
+
                 Exercise c1 = new Exercise("Cycling",30);
                 Exercise c2 = new Exercise("Squats",10);
                 Exercise c3 = new Exercise("Lunges-Left",10);
@@ -25,10 +29,10 @@ public class ExerciseConfig {
                 Exercise c7 = new Exercise("Stretchings",30);
                 Exercise c8 = new Exercise("Pistol Squats", 10);
                 
-                
+                              
                 repository.saveAll(List.of(c1,c2,c3,c4,c5,c6,c7,c8));  //will save Excercise  data into sqlite database.
         };
     }
-    */
+    
 }
 

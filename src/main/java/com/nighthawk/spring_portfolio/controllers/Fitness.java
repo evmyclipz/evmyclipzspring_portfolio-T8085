@@ -2,15 +2,18 @@ package com.nighthawk.spring_portfolio.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.nighthawk.spring_portfolio.controllers.UserService;
+import java.util.List;
 
 
-@Controller  // HTTP requests are handled as a controller, using the @Controller annotation
+@Controller
 public class Fitness {
 
     
@@ -21,7 +24,6 @@ public class Fitness {
     {
         userService=us;
     }
-
 
     // CONTROLLER handles GET request for /birds, maps it to birds() method
     @GetMapping("/fitness")  //connects to fitness.html
@@ -54,6 +56,5 @@ public class Fitness {
             return "fitness";
         }
     }
-
 
 }
