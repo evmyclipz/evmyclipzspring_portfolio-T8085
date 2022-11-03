@@ -40,9 +40,16 @@
 <label for="credit">Credit Card info</label> <br/>
 <input type="Credit" name="credit"/> <br/>
 <br/>
-<button type="submit" class="btn btn-sucess">Submit</button>
+<button type="submit" button class="btn-1 btn btn-secondary m-2">Submit</button>
 </form>
 <br/>
 </div>
 </body>
 </html>
+
+<script>
+$(function(){
+  $('.btn-1').click(function() {
+    alert('Thank You for clicking buton 1.')
+  });
+</script>
