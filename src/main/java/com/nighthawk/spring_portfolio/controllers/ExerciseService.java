@@ -8,7 +8,7 @@ import java.util.List;
 
 @Component
 public class ExerciseService {
-
+ 
     private final ExerciseRepository repository;
 
     @Autowired  //also instatiated repo 
