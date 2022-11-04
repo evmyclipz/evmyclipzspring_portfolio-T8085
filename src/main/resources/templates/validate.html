@@ -106,3 +106,163 @@
 	</table>
 </body>
 </html>
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eec0c6;
+background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+main {
+background-color: #6b0f1a;
+background-image: linear-gradient(315deg, #6b0f1a 0%, #b91372 74%);
+  border-radius: 5px;
+  color: white;
+}
+
+
+
+.quiz-container {
+  list-style: none;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 3rem;
+  background-color: white;
+  color: blueviolet;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+button#submit {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  background-color: rebeccapurple;
+  color: white;
+  font-size: 1rem;
+  margin: 1rem 0 0 40%;
+  box-shadow: 0 5px rgb(195, 141, 246);
+}
+button#submit:hover {
+  background-color: blueviolet;
+}
+button#submit:active {
+  background-color: blueviolet;
+  box-shadow: 0 5px rgb(188, 155, 219);
+  transform: translateY(4px);
+}
+
+
+
+#question {
+  margin: 0 0 2rem 0;
+}
+h1 {
+  text-align: center;
+  z-index: -1;
+}
+
+
+
+/*quiz data */
+const quizData = [
+  {
+    question: 'Who is the weighlifting champ ?',
+    a: 'Sunder Pichai',
+    b: 'Larry Page ',
+    c: 'arnold',
+    correct: 'c',
+  },
+  {
+    question: 'Who is the current lifting god ?',
+    a: 'Jeff Bezos',
+    b: 'Warren Buffet ',
+    c: 'YOU',
+    correct: 'c',
+  },
+  {
+    question: 'Who is the current CEO of Tesla ?',
+    a: 'Jeffry Black',
+    b: 'Elon Musk ',
+    c: 'Jhon Brown',
+    correct: 'b',
+  },
+  {
+    question: 'Who is the current CEO of Microsoft ?',
+    a: 'Satya Nadella ',
+    b: 'Tom Klington',
+    c: 'Jhon Brown',
+    correct: 'a',
+  },
+  {
+    question: 'Which of the company is owned by Mark Zkerburg ?',
+    a: 'Neuralink ',
+    b: 'Meta Platforms Inc ',
+    c: 'Metaverse LLC ',
+    correct: 'b',
+  },
+];
+
+/*Grabing all the elements */
+const question = document.getElementById('question');
+const a = document.getElementById('a+');
+const b = document.getElementById('b+');
+const c = document.getElementById('c+');
+const btn = document.getElementById('submit');
+const all_answer = document.querySelectorAll('.answer');
+
+
+
+let index = 0;
+let score = 0;
+//get the getSelected answer
+function getSelected() {
+  let ans = undefined;
+  all_answer.forEach((el) => {
+    if (el.checked) {
+      ans = el.id;
+    }
+  });
+  return ans;
+}
+//disselect all answer
+function deselectans() {
+  all_answer.forEach((el) => {
+    el.checked = false;
+  });
+}
+//load the quiz data
+function getquiz() {
+  deselectans();
+  question.innerText = quizData[index].question;
+  a.innerText = quizData[index].a;
+  b.innerText = quizData[index].b;
+  c.innerText = quizData[index].c;
+}
+//move forward the quiz
+function startquiz() {
+  btn.addEventListener('click', () => {
+    let ans = getSelected();
+    if (ans) {
+      if (ans == quizData[index].correct) {
+        score++;
+      }
+    }
+    index++;
+    if (index < quizData.length) {
+      getquiz();
+    } else {
+      alert('score :' + score);
+      location.reload();
+    }
+  });
+}
+getquiz();
+startquiz();
