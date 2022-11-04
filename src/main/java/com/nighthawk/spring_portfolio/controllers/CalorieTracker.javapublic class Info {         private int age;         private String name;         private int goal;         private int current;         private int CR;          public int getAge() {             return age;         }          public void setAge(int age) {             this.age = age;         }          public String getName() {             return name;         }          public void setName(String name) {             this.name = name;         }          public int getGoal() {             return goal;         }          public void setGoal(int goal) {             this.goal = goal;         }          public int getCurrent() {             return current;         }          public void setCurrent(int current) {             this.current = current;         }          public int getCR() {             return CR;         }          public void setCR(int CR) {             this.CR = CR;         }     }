@@ -44,4 +44,40 @@ public class Info {
         public void setCR(int CR) {
             this.CR = CR;
         }
+        
+         private static final String ASK_USERS_NAME = "Please tell me your name.";
+        private static final String WELCOME_USER_TEMPLATE = "Hello there %s!%n";
+        private static final String ASK_USERS_AGE = "How old are you?";
+        private static final String CALORIES_AIM_INTAKE = "How many calories do you aim to intake?";
+        private static final String GOAL_IN_NUMBERS_PROMPT = "Please Enter the goal in numbers only. EX: '4000'";
+        private static final String YES = "yes";
+        private static final String NO = "no";
+        private static final String VALID_AGE_PROMPT = "This is not a number. Please type your age - Ex: 12, 28, 52, etc";
+        private static final String DAILY_LOG_BEGIN_CONGRATS = "Great! You may now begin your daily log!";
+        private static final String YES_NO_PROMPT = "Type Yes or No.";
+
+        public static void main(String[] args) {
+            System.out.println(ASK_USERS_NAME);
+            Scanner NI = new Scanner(System.in);
+            String NameInput = NI.nextLine();
+            Info user = new Info();
+            user.name = NameInput;
+
+            // Name is printed below
+            System.out.printf(WELCOME_USER_TEMPLATE, NameInput);
+            String AgeVerification = NO;
+            do {
+                System.out.println(ASK_USERS_AGE);
+                Scanner UA = new Scanner(System.in);
+                // Starts asking for age
+                while (!UA.hasNextInt()) {
+
+                    System.out.println(VALID_AGE_PROMPT);
+                    String INVALIDUA = UA.next();
+                }
+                // If Age is a number - Continue
+                int UserAge = UA.nextInt();
+
+                System.out.println("So," + NameInput + " you are " + UserAge + ". Is that correct?");
+                System.out.println(YES_NO_PROMPT);
     }
