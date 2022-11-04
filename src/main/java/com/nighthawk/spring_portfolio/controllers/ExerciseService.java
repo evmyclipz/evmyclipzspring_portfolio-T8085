@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 import com.nighthawk.spring_portfolio.controllers.ExerciseRepository;  //import Excercise repo to use built in methods
 import java.util.List;
 
-@Component
+//@Component
 public class ExerciseService {
-
+ /* 
     private final ExerciseRepository repository;
 
     @Autowired  //also instatiated repo 
@@ -21,5 +21,5 @@ public class ExerciseService {
     {
         return repository.findAll(); //retreieves Excercise data from sqlite database
     }
-    
+    */
 }
