@@ -1,0 +1,50 @@
+<div id="quiz"></div>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
+
+
+<script> const quizContainer = document.getElementById('quiz');
+const resultsContainer = document.getElementById('results');
+const submitButton = document.getElementById('submit');
+
+function buildQuiz(){}
+
+function showResults(){}
+
+// display quiz right away
+buildQuiz();
+
+// on submit, show results
+submitButton.addEventListener('click', showResults);
+  
+  const myQuestions = [
+  {
+    question: "How many hours of sleep do you need?",
+    answers: {
+      a: "12",
+      b: "2",
+      c: "8"
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "How much cardio should you do per day?",
+    answers: {
+      a: "1 minute",
+      b: "400 minutes",
+      c: "30 minutes"
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "How can you maintain a healthy diet?",
+    answers: {
+      a: "Don't track your calories",
+      b: "Eat no food every day",
+      c: "Eat fast food every day",
+      d: "Track your calories"
+    },
+    correctAnswer: "d"
+  }
+ ];
+</script>
