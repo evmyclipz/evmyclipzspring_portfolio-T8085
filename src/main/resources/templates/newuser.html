@@ -180,6 +180,12 @@
             font-size: 30px;
             text-align: center;
         }
+        table, th, td {
+            border: 
+            1px solid lightblue;
+            background-color: white;
+            foreground-color: #ffff66;
+          }
 
     </style>
     <body>
@@ -248,7 +254,7 @@
                         <!--button class = "edit-button" id = "edit-button">Edit Personal Information</button-->
                     </div>
                 </div>
-                <!--div class = "fitness-plan-container" style = "margin-top: 150px;">
+                <div class = "fitness-plan-container" style = "margin-top: 150px;">
                     <h2 style = "color: black; text-align: center;">Your Current Plan</h2>
                     <div class = "current-plan-heading">
                         <h3 id = "current-plan"></h3>
@@ -256,14 +262,64 @@
                     <table>
                         <thead>
                           <tr>
-                              <th>"ID No."</th>
+                              <!--th>"ID No."</th-->
                               <th>"Exercise Name"</th>
                               <th>"Time Period or Reps"</th>
                           </tr>
                         </thead>
                         <tbody id="refid"></tbody>
                     </table>
-                </div-->
+                    <script>
+                      {
+                                    const url = `${window.location.origin}/api/v1/fitnessApp`;
+                                    //const url = "http://localhost:8080/api/v1/fitnessApp";
+                
+                
+                                    const resultContainer  = document.getElementById("refid");
+
+                                    const wt = document.getElementById("weight-display").innerText;
+                                    const ft = document.getElementById("free-time-display").innerText
+                                    var fft=0;
+
+                                    if(wt>=150){
+                                    fetch(url)
+                                    .then(res => res.json())
+                                    .then((data) => {
+                                    alert("Fetching data..........");
+                
+                                    for (const rs of data)
+                                    {
+                                        fft=fft+parseInt(rs.timePeriod);
+                                        if(fft<=parseInt(ft))
+                                        {
+                                        const tr = document.createElement("tr");
+                                        //const n1 = document.createElement("td");
+                                        const n2 = document.createElement("td");    
+                                        const n3 = document.createElement("td");
+                                        //n1.innerHTML = rs.id;
+                                        n2.innerHTML = rs.exerciseName;
+                                        n3.innerHTML = rs.timePeriod;
+                                            
+                                        //tr.appendChild(n1);
+                                        tr.appendChild(n2);
+                                        tr.appendChild(n3);
+                                        // add HTML to container
+                                       
+                                        resultContainer.appendChild(tr);
+                                       // alert(rs.exerciseName);
+                                        }
+                                        else {
+                                            break;
+                                        }
+                                    }
+                
+                                    })
+                                    .catch(err => { throw err });
+                                }
+                                
+                                }
+                    </script>
+                </div>
             </div>
         </div>
         </body>
