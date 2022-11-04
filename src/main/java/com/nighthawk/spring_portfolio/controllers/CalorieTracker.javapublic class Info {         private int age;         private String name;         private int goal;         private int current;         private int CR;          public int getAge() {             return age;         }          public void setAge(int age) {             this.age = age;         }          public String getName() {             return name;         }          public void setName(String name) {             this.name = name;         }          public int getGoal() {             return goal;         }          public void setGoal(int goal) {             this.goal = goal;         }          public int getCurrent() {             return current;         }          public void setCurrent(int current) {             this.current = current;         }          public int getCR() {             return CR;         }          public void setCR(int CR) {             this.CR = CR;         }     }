@@ -1,0 +1,47 @@
+public class Info {
+        private int years;
+        private String name;
+        private int chance;
+        private int current;
+        private int CR;
+
+        public int getAge() {
+            return years;
+        }
+
+        public void setAge(int years) {
+            this.years = years;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getGoal() {
+            return chance;
+        }
+
+        public void setGoal(int chance) {
+            this.chance = chance;
+        }
+
+        public int getCurrent() {
+            return current;
+        }
+
+        public void setCurrent(int current) {
+            this.current = current;
+        }
+
+        public int getCR() {
+            return CR;
+        }
+
+        public void setCR(int CR) {
+            this.CR = CR;
+        }
+    }
